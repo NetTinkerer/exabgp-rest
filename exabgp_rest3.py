@@ -18,7 +18,6 @@ class bgpPrefix:
         self.action=action
         self.next_hop=next_hop
         self.attributes=attributes
-        print self.attributes
     def get_exabgp_message(self):
         if (self.action=='withdraw'):
             exabgp_message="{0} route {1} next-hop {2}".format(self.action,self.prefix,self.next_hop)
@@ -30,7 +29,6 @@ class bgpPrefix:
                  elif attribute == "med":
                      attribute_string+=" med {0}".format(self.attributes[attribute])
                  elif attribute == "community":
-                     print self.attributes[attribute]
                      if len(self.attributes[attribute])>0:
 			 attribute_string+=" community [ "
 			 for comm in self.attributes[attribute]:
